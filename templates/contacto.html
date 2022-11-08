@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>
+    <CENTER> <b> ¡Contactanos! </b> </CENTER>
+      
+</h1>
+   <br>
+   <br>
+   <br>
+<form action="/agrega_comenta" method="post">
+   <div class="container">
+          <div class="form-row">
+               <div class="col-xs-12 ">
+                <div class="mb-3">
+                      <label for="usuario" class="form-label">Nombre de Usuario</label>
+                      <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Nombre">
+                </div>
+                <div class="mb-3">
+                      <label for="contraseña" class="form-label">Password</label>
+                      <input type="password" class="form-control" name="contraseña" id="contraseña"></input>
+                </div>
+                </div>
+          </div>
+    </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+{% endblock %}

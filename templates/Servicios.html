@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url(static/images/BCK.jpg);
+    color: white;
+    font-family:"Arial";
+}
+header, .main, footer{
+    width: 99%;
+    margin: 1% auto;
+    color: white;
+}
+
+header nav {
+    overflow: hidden;
+    -moz-border-radius: 20px / 10px;
+    -webkit-border-radius: 20px / 10px;
+    border-radius: 20px / 10px;
+    -moz-box-shadow: rgb(150,150,150) 5px 5px;
+    -webkit-box-shadow: rgb(150,150,150) 5px 5px;
+    box-shadow: rgb(150,150,150) 5px 5px 10px inset;
+}
+
+header nav ul {
+    list-style: none;
+}
+header nav ul li{
+    float: left;
+}
+header nav ul li a{
+    padding: 10px 20px;
+    display:block;
+    color:white;
+    text-decoration: none;
+
+}
+header nav ul li a:hover{
+}
+.main .articles{
+    width:100%;
+    right: 30%;
+    margin-right: 1.5%;
+    float:left;
+}
+</style>
+    <title>Nuestros servicios</title>
+        <P>En este momento solo se cuenta con un solo empleado, pero no dejamos de ofrecerle la mejor calidad en nuestros servicios.</P>
+        <P>Nuestros servicios se empeñan en ofrecerle variedad de piñatas, ya sea para fiestas infantiles, para navidad, etc. Tambien se hacen piñatas de caricaturas, en estas depende del gusto suyo(cliente). A continuacion se te presentan algunos de nuestros trabajos</P>
+        <BR>
+        <BR>
+        <Table BORDER="2" WIDTH="60%"HEIGHT="50%">
+        <CAPTION ALIGN=top>PIÑATAS PARA FIESTAS INFANTILES O DE CARICATURAS</CAPTION>
+        <TR>
+            <TD>PRECIO</TD>
+            <TD>DESCRIPCION E IMAGEN</TD>
+        </TR>
+        <TR>
+            <TD>$270.00</TD>
+            <TD> Llama de Fortnite<P><img src=static/images/PF.jpg WIDTH="135" HEIGHT="150"></P></TD>
+        </TR>
+        <TR>
+            <TD>$150.00</TD>
+            <TD>Lilio y Stich<P><img src=static/images/SER.jpg WIDTH="135" HEIGHT="150"></P></TD>
+        </TR>
+        <TR>
+            <TD>$130.00</TD>
+            <TD>Spider-man<P><img src=static/images/SPID.jpg WIDTH="135" HEIGHT="150"></P></TD>
+        </TR></Table>
+{% endblock %}
