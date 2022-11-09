@@ -38,12 +38,12 @@ def editar(id):
 @app.route('/editar_comenta/<string:id>',methods=['POST'])
 def editar_comenta(id):
     if request.method == 'POST':
-        corr=request.form['Nombre']
-        come=request.form['Correo']
+        nom=request.form['Nombre']
+        corr=request.form['Correo']
         telf=request.form['Telefono']
         conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
         cursor = conn.cursor()
-        cursor.execute('update usuarios set Nombre=%s, Correo=%s, Telefono=%s where id=%s', (corr,come,telf,id))
+        cursor.execute('update usuarios set Nombre=%s, Correo=%s, Telefono=%s where id=%s', (nom,corr,telf,id))
         conn.commit()
     return redirect(url_for('Servicios'))
 
@@ -51,7 +51,7 @@ def editar_comenta(id):
 def borrar(id):
     conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
     cursor = conn.cursor()
-    cursor.execute('delete from Nombre where id = {0}'.format(id))
+    cursor.execute('delete from usuarios where id = {0}'.format(id))
     conn.commit()
     return redirect(url_for('Servicios'))
 
