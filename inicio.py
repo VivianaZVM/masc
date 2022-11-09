@@ -62,18 +62,19 @@ def insertar():
 def crud():
     conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
     cursor = conn.cursor()
-    cursor.execute('select id, usuario, contraseña from usuarios order by id')
+    cursor.execute('select id, Nombre, Correo, Telefono from usuarios order by id')
     datos = cursor.fetchall()
     return render_template("crud.html", comentarios = datos)
 
 @app.route('/agrega_comenta', methods=['POST'])
 def agrega_comenta():
     if request.method == 'POST':
-        aux_usuario = request.form['usuario']
-        aux_contraseña = request.form['contraseña']
+        aux_Nombre = request.form['Nombre']
+        aux_Correo = request.form['Correo']
+        aux_Telefono = request.form['Telefono']
         conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
         cursor = conn.cursor()
-        cursor.execute('insert into usuarios (usuario,contraseña) values (%s, %s)',(aux_usuario, aux_contraseña))
+        cursor.execute('insert into usuarios (Nombre,Correo,Telefono) values (%s, %s)',(aux_Nombre, aux_Correo, aux_Telefono))
         conn.commit()
     return redirect(url_for('home'))
 
