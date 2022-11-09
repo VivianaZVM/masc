@@ -31,18 +31,19 @@ def contacto():
 def editar(id):
     conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
     cursor = conn.cursor()
-    cursor.execute('select id, usuario, contraseña from usuarios where id = %s', (id))
+    cursor.execute('select id, Nombre, Correo, Telefono from usuarios where id = %s', (id))
     dato  = cursor.fetchall()
     return render_template("editar.html", comentar=dato[0])
 
 @app.route('/editar_comenta/<string:id>',methods=['POST'])
 def editar_comenta(id):
     if request.method == 'POST':
-        corr=request.form['usuario']
-        come=request.form['contraseña']
+        corr=request.form['Nombre']
+        come=request.form['Correo']
+        telf=request.form['Telefono']
         conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
         cursor = conn.cursor()
-        cursor.execute('update usuarios set usuario=%s, contraseña=%s where id=%s', (corr,come,id))
+        cursor.execute('update usuarios set Nombre=%s, Correo=%s, Telefono=%s where id=%s', (corr,come,telf,id))
         conn.commit()
     return redirect(url_for('Servicios'))
 
@@ -50,7 +51,7 @@ def editar_comenta(id):
 def borrar(id):
     conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
     cursor = conn.cursor()
-    cursor.execute('delete from usuarios where id = {0}'.format(id))
+    cursor.execute('delete from Nombre where id = {0}'.format(id))
     conn.commit()
     return redirect(url_for('Servicios'))
 
@@ -74,7 +75,7 @@ def agrega_comenta():
         aux_Telefono = request.form['Telefono']
         conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
         cursor = conn.cursor()
-        cursor.execute('insert into usuarios (Nombre,Correo,Telefono) values (%s, %s)',(aux_Nombre, aux_Correo, aux_Telefono))
+        cursor.execute('insert into usuarios (Nombre,Correo,Telefono) values (%s, %s, %s)',(aux_Nombre, aux_Correo, aux_Telefono))
         conn.commit()
     return redirect(url_for('home'))
 
