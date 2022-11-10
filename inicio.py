@@ -39,7 +39,7 @@ def editar(id):
     dato  = cursor.fetchall()
     return render_template("editar.html", comentar=dato[0])
 
-@app.route('/editar_comenta_fedita/<string:id>',methods=['POST'])
+@app.route('/editar_coment_fedita/<string:id>',methods=['POST'])
 def editar_comenta_fedita(id):
  if request.method == 'POST':
     nom=request.form['Nombre']
