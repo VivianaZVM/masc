@@ -44,41 +44,64 @@ header nav ul li a:hover{
     color: black;
 }
 </style>
-    <table width="100%" border="1" cellpadding="0" bordercolor="black">
-    <tbody>
-    <tr>
-    <td color="FFFFFF" bgcolor="lightpink" valign="top">
-    <right><h3><a href="/contacto">Registrarse</a></h3></right>
-    <center><h3>Registro</h3></center>
-    <table width="100%" border="1" cellpadding="0" bordercolor="black">
-    <thead>
-      <tr>
-        <td color="white" bgcolor="lightpink">Nombre</td>
-        <td color="white" bgcolor="lightpink">Correo</td>
-        <td color="white" bgcolor="lightpink">Telefono</td>
-      </tr>
-    </thead>
-    <tbody>
-    {% for i in comentarios %}
+<div class="container">
+    <form action="/agrega_comenta/{{comentar.0}}" method="post"></form>
+    <body>
+
+<br>
+    <center><h1><strong>Datos</strong></h1></center>
+<center><table width="100%" border="1%" cellpadding="2%"></table></center>
+<tr>
+
         <tr>
-        <td width="42%">
-           {{i.1}}
-        </td>
-        <td width="42%">
-           {{i.2}}
-        </td>
-        <td bgcolor="#2B2D83" width="8%">
-        <center><a href="/editar/{{i.0}}" style="...">Editar</a></center>
-        </td>
-        <td bgcolor="#3C3EC5" width="8%">
-        <center><a href="/borrar/{{i.0}}" style="...">Borrar</a></center>
-        </td>
+            <td>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="table-dark" scope="col">Nombre</th>
+                            <th class="table-dark" scope="col">Correo</th>
+                            <th class="table-dark" scope="col">Telefono</th>
+                            <th class="table-dark" scope="col">Direccion</th>
+                            <th class="table-dark" scope="col">Ocacion</th>
+                            <td class="table-dark"></td>
+                            <td class="table-dark"><center><a class="btn btn-info" href="/contacto" role="button">Agregar Datos</a></center></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <table class="table table-striped table-info">
+                        {% for i in comentar %}
+                        <tr>
+                            <td>
+                               {{i.1}}
+                            </td>
+                            <td>
+                               {{i.2}}
+                            </td>
+                            <td>
+                                {{i.3}}
+                            </td>
+                            <td>
+                                {{i.4}}
+                             </td>
+                             <td>
+                                {{i.5}}
+                             </td>
+                            <td bgcolor="#2B2D83">
+                                <center><a href="/editar/{{i.0}}" >Editar</a></center>
+                                </td>
+                            <td bgcolor="#3C3EC5">
+                                <center><a href="/borrar/{{i.0}}" >Borrar</a></center>
+                            </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    </tbody>
+
+                </table>
+
+            </td>
         </tr>
-    {% endfor %}
-    </tbody>
     </table>
-    </td>
-    </tr>
-    </tbody>
-    </table>
+</body>
+</div>
 {% endblock %}

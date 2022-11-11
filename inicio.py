@@ -1,15 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
 import pymysql
+from flask import Flask, flash, redirect, render_template, request, url_for
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
     return render_template("home.html")
-
-@app.route('/login')
-def log():
-    return render_template("login.html")
 
 @app.route('/index')
 def index():
@@ -35,21 +31,23 @@ def contacto():
 def editar(id):
     conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
     cursor = conn.cursor()
-    cursor.execute('select id, Nombre, Correo, Telefono from usuarios where id = %s', (id))
+    cursor.execute('select id, Nombre, Correo, Telefono, Direccion, Ocacion from usuarios where id = %s', (id))
     dato  = cursor.fetchall()
     return render_template("editar.html", comentar=dato[0])
 
 @app.route('/editar_comenta/<string:id>',methods=['POST'])
 def editar_comenta(id):
     if request.method == 'POST':
-        nom=request.form['Nombre']
-        corr=request.form['Correo']
-        telf=request.form['Telefono']
+        aux_Nombre = request.form['Nombre']
+        aux_Correo = request.form['Correo']
+        aux_Telefono = request.form['Telefono']
+        aux_Direccion = request.form['Direccion']
+        aux_Ocacion = request.form['Ocacion']
         conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
         cursor = conn.cursor()
-        cursor.execute('update usuarios set Nombre=%s, Correo=%s, Telefono=%s where id=%s', (nom,corr,telf,id))
+        cursor.execute('UPDATE usuarios set Nombre=%s, Correo=%s, Telefono=%s, Direccion=%s, Ocacion=%s where id=%s', (aux_Nombre, aux_Correo, aux_Telefono, aux_Direccion, aux_Ocacion,id))
         conn.commit()
-    return redirect(url_for('Servicios'))
+    return redirect(url_for('crud'))
 
 @app.route('/borrar/<string:id>')
 def borrar(id):
@@ -57,7 +55,7 @@ def borrar(id):
     cursor = conn.cursor()
     cursor.execute('delete from usuarios where id = {0}'.format(id))
     conn.commit()
-    return redirect(url_for('Servicios'))
+    return redirect(url_for('crud'))
 
 @app.route('/insertar')
 def insertar():
@@ -67,9 +65,9 @@ def insertar():
 def crud():
     conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
     cursor = conn.cursor()
-    cursor.execute('select id, Nombre, Correo, Telefono from usuarios order by id')
+    cursor.execute('select id, Nombre, Correo, Telefono, Direccion, Ocacion from usuarios order by id')
     datos = cursor.fetchall()
-    return render_template("crud.html", comentarios = datos)
+    return render_template("crud.html", comentar = datos)
 
 @app.route('/agrega_comenta', methods=['POST'])
 def agrega_comenta():
@@ -77,11 +75,13 @@ def agrega_comenta():
         aux_Nombre = request.form['Nombre']
         aux_Correo = request.form['Correo']
         aux_Telefono = request.form['Telefono']
+        aux_Direccion = request.form['Direccion']
+        aux_Ocacion = request.form['Ocacion']
         conn = pymysql.connect(host='localhost', user='root', passwd='', db='solicitud_registro')
         cursor = conn.cursor()
-        cursor.execute('insert into usuarios (Nombre,Correo,Telefono) values (%s, %s, %s)',(aux_Nombre, aux_Correo, aux_Telefono))
+        cursor.execute('insert into usuarios (Nombre,Correo,Telefono,Direccion,Ocacion) values (%s, %s, %s, %s, %s)',(aux_Nombre, aux_Correo, aux_Telefono, aux_Direccion, aux_Ocacion))
         conn.commit()
-    return redirect(url_for('home'))
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
     app.run(debug=True)
