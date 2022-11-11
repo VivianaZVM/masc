@@ -104,4 +104,40 @@ header nav ul li a:hover{
     </table>
 </body>
 </div>
+<h1>
+</h1>
+   <br>
+   <br>
+   <br>
+<form action="/agrega_comenta" method="post">
+   <div class="container">
+          <div class="form-row">
+               <div class="col-xs-12 ">
+                <div class="mb-3">
+                      <label for="Nombre" class="form-label">Nombre de Usuario</label>
+                      <input type="text" class="form-control" name="Nombre" id="Nombre" readonly="readonly" placeholder="Nombre">
+                </div>
+                <div class="mb-3">
+                      <label for="Correo" class="form-label">e-mail</label>
+                      <input type="text" class="form-control" name="Correo" id="Correo" readonly="readonly" placeholder="ingresa tu Correo"></input>
+                </div>
+                <div class="mb-3">
+                  <label for="Telefono" class="form-label">Numero de telefono</label>
+                  <input type="text" class="form-control" name="Telefono" id="Telefono" readonly="readonly" placeholder="ingresa tu Telefono"></input>
+                </div>
+                  <div class="mb-3">
+                        <label for="Direccion" class="form-label">Direccion</label>
+                        <input type="text" class="form-control" name="Direccion" id="Direccion" readonly="readonly" placeholder="ingresa tu Direccion">
+                  </div>
+                  <div class="mb-3">
+                              <label for="Ocacion" class="form-label">Tipo de Ocacion</label>
+                              <input type="text" class="form-control" name="Ocacion" id="Ocacion"readonly="readonly" placeholder="Para que ocacion ocupas la piñata??">
+                        </div>
+                  </div>
+            </div>
+                </div>
+          </div>
+    </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
 {% endblock %}
