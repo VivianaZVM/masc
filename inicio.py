@@ -79,5 +79,9 @@ def agrega_comenta():
         conn.commit()
     return redirect(url_for('index'))
 
+@app.route('/carrito')
+def carrito():
+    return render_template("carrito.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
