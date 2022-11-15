@@ -1,9 +1,9 @@
 import pymysql
-from flask import Flask, flash, redirect, render_template, request, url_for
+from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
 
-@app.route('/index')
+@app.route('/')
 def index():
     return render_template("index.html")
 
