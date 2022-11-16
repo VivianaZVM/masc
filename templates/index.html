@@ -7,9 +7,9 @@ margin: 0;
 padding: 0;
 }
 body {
-    background-image: url(static/images/P.jpg);
+    background-image: url(static/images/f6.jpg);
     image: no-repeat;
-    color: teal;
+    color: rgb(255, 255, 255);
     font-family:"Arial"
 }
 
@@ -23,7 +23,7 @@ header nav {
     -moz-border-radius: 20px / 10px;
     -webkit-border-radius: 20px / 10px;
     border-radius: 20px / 10px;
-    -moz-box-shadow: rgb(150,150,150) 5px 5px;
+    -moz-box-shadow: rgb(255, 255, 255) 5px 5px;
     -webkit-box-shadow: rgb(150,150,150) 5px 5px;
     box-shadow: rgb(150,150,150) 5px 5px 10px inset;
 }
@@ -37,12 +37,11 @@ header nav ul li{
 header nav ul li a{
     padding: 10px 20px;
     display:block;
-    color:black;
+    color:rgb(255, 255, 255);
     text-decoration: none;
 
 }
-header nav ul li a:hover{
-}
+
 .main .articles{
     width:100%;
     right: 30%;
@@ -69,10 +68,13 @@ header nav ul li a:hover{
 <br>
 <br>
 <br>
+
 <center>
-    <h2>LAS MEJORES PIÑATAS SOLO AQUI</h2>
-                        <br>
+    <div class="col-12" style="background-color: rgb(223, 2, 2); border-radius: 2cm;">
+    <h2><b>LAS MEJORES PIÑATAS SOLO AQUI</b></h2>
+                        <br><b>
                         Te brindamos un servicio de calidad con las mejores piñatas.
-                        <br>
+                    </b><br>
+</div>
 </center>
 {% endblock %}

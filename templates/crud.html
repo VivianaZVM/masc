@@ -30,8 +30,7 @@ header nav ul li a{
     text-decoration: none;
 
 }
-header nav ul li a:hover{
-}
+
 .main .articles{
     width:100%;
     right: 30%;
@@ -73,7 +72,7 @@ header nav ul li a:hover{
                             <th class="table-dark" scope="col">Direccion</th>
                             <th class="table-dark" scope="col">Ocacion</th>
                             <td class="table-dark"></td>
-                            <td class="table-dark"><center><a class="btn btn-info" href="/contacto" role="button">Agregar</a></center></td>
+                            <td class="table-dark"><center><a class="btn btn-danger" href="/contacto" role="button">Agregar</a></center></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,12 +94,11 @@ header nav ul li a:hover{
                              <td>
                                 {{i.5}}
                              </td>
-                            <td bgcolor="#2B2D83">
-                                <center><a href="/editar/{{i.0}}" >Editar</a></center>
-                                </td>
-                            <td bgcolor="#3C3EC5">
-                                <center><a href="/borrar/{{i.0}}" >Borrar</a></center>
+                            <td width="1%"><center><a class="btn btn-primary" href="/editar/{{i.0}}" role="button">Editar</a></center></td>
                             </td>
+                            <td width="1%"><center><a class="btn btn-primary" href="/borrar/{{i.0}}" role="button">Borrar</a></center></td>
+                            </td>
+                            <td width="1%"><center><a class="btn btn-primary" href="/Detalle/{{i.0}}" role="button">Detalle</a></center></td>
                             </tr>
                         {% endfor %}
                     </table>
