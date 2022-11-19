@@ -2,6 +2,10 @@
 
 {% block content %}
 <style>
+body{
+    background: lightblue;
+}
+
 header, .main, footer{
     width: 99%;
     margin: 1% auto;
@@ -44,7 +48,7 @@ header nav ul li a{
 }
 </style>
 <div class="container">
-    <form action="/agrega_comenta/{{comentar.0}}" method="post"></form>
+    <form action="/agrega_comenta/" method="post"></form>
     <body>
 
 <br>
@@ -65,10 +69,7 @@ header nav ul li a{
                             <th class="table-dark" scope="col"></th>
                             <th class="table-dark" scope="col"></th>
                             <th class="table-dark" scope="col"></th>
-                            <th class="table-dark" scope="col"></th>
                             <th class="table-dark" scope="col">Telefono</th>
-                            <th class="table-dark" scope="col"></th>
-                            <th class="table-dark" scope="col"></th>
                             <th class="table-dark" scope="col">Direccion</th>
                             <th class="table-dark" scope="col">Ocacion</th>
                             <td class="table-dark"></td>
@@ -98,7 +99,7 @@ header nav ul li a{
                             </td>
                             <td width="1%"><center><a class="btn btn-primary" href="/borrar/{{i.0}}" role="button">Borrar</a></center></td>
                             </td>
-                            <td width="1%"><center><a class="btn btn-primary" href="/Detalle/{{i.0}}" role="button">Detalle</a></center></td>
+                            <td width="1%"><center><a class="btn btn-primary" href="/puesto_fdetalle/{{i.0}}" role="button">Detalle</a></center></td>
                             </tr>
                         {% endfor %}
                     </table>
@@ -116,35 +117,34 @@ header nav ul li a{
    <br>
    <br>
    <br>
-<form action="/agrega_comenta" method="post">
+<form class="row g-3" action="/puesto_fdetalle/" method="GET">
    <div class="container">
           <div class="form-row">
                <div class="col-xs-12 ">
                 <div class="mb-3">
                       <label for="Nombre" class="form-label">Nombre de Usuario</label>
-                      <input type="text" class="form-control" name="Nombre" id="Nombre" readonly="readonly" placeholder="Nombre">
+                      <input type="text" class="form-control" name="Nombre" id="Nombre" value="{{dat.1}}"  readonly="readonly" placeholder="Nombre">
                 </div>
                 <div class="mb-3">
                       <label for="Correo" class="form-label">e-mail</label>
-                      <input type="text" class="form-control" name="Correo" id="Correo" readonly="readonly" placeholder="ingresa tu Correo"></input>
+                      <input type="text" class="form-control" name="Correo" id="Correo" value="{{dat.2}}" readonly="readonly" placeholder="ingresa tu Correo"></input>
                 </div>
                 <div class="mb-3">
                   <label for="Telefono" class="form-label">Numero de telefono</label>
-                  <input type="text" class="form-control" name="Telefono" id="Telefono" readonly="readonly" placeholder="ingresa tu Telefono"></input>
+                  <input type="text" class="form-control" name="Telefono" id="Telefono" value="{{dat.3}}" readonly="readonly" placeholder="ingresa tu Telefono"></input>
                 </div>
                   <div class="mb-3">
                         <label for="Direccion" class="form-label">Direccion</label>
-                        <input type="text" class="form-control" name="Direccion" id="Direccion" readonly="readonly" placeholder="ingresa tu Direccion">
+                        <input type="text" class="form-control" name="Direccion" id="Direccion" value="{{dat.4}}" readonly="readonly" placeholder="ingresa tu Direccion">
                   </div>
                   <div class="mb-3">
                               <label for="Ocacion" class="form-label">Tipo de Ocacion</label>
-                              <input type="text" class="form-control" name="Ocacion" id="Ocacion"readonly="readonly" placeholder="Para que ocacion ocupas la piñata??">
+                              <input type="text" class="form-control" name="Ocacion" id="Ocacion" value="{{dat.5}}" readonly="readonly" placeholder="Para que ocacion ocupas la piñata?">
                         </div>
                   </div>
             </div>
                 </div>
           </div>
     </div>
-          <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 {% endblock %}
