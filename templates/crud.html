@@ -99,7 +99,6 @@ header nav ul li a{
                             </td>
                             <td width="1%"><center><a class="btn btn-primary" href="/borrar/{{i.0}}" role="button">Borrar</a></center></td>
                             </td>
-                            <td width="1%"><center><a class="btn btn-primary" href="/puesto_fdetalle/{{i.0}}" role="button">Detalle</a></center></td>
                             </tr>
                         {% endfor %}
                     </table>
@@ -112,39 +111,5 @@ header nav ul li a{
     </table>
 </body>
 </div>
-<h1>
-</h1>
-   <br>
-   <br>
-   <br>
-<form class="row g-3" action="/puesto_fdetalle/" method="GET">
-   <div class="container">
-          <div class="form-row">
-               <div class="col-xs-12 ">
-                <div class="mb-3">
-                      <label for="Nombre" class="form-label">Nombre de Usuario</label>
-                      <input type="text" class="form-control" name="Nombre" id="Nombre" value="{{dat.1}}"  readonly="readonly" placeholder="Nombre">
-                </div>
-                <div class="mb-3">
-                      <label for="Correo" class="form-label">e-mail</label>
-                      <input type="text" class="form-control" name="Correo" id="Correo" value="{{dat.2}}" readonly="readonly" placeholder="ingresa tu Correo"></input>
-                </div>
-                <div class="mb-3">
-                  <label for="Telefono" class="form-label">Numero de telefono</label>
-                  <input type="text" class="form-control" name="Telefono" id="Telefono" value="{{dat.3}}" readonly="readonly" placeholder="ingresa tu Telefono"></input>
-                </div>
-                  <div class="mb-3">
-                        <label for="Direccion" class="form-label">Direccion</label>
-                        <input type="text" class="form-control" name="Direccion" id="Direccion" value="{{dat.4}}" readonly="readonly" placeholder="ingresa tu Direccion">
-                  </div>
-                  <div class="mb-3">
-                              <label for="Ocacion" class="form-label">Tipo de Ocacion</label>
-                              <input type="text" class="form-control" name="Ocacion" id="Ocacion" value="{{dat.5}}" readonly="readonly" placeholder="Para que ocacion ocupas la piñata?">
-                        </div>
-                  </div>
-            </div>
-                </div>
-          </div>
-    </div>
-</form>
+
 {% endblock %}
