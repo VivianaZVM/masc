@@ -77,8 +77,6 @@ def borrar(id):
     conn.commit()
     return redirect(url_for('crud'))
 
-
-
 @app.route('/carrito')
 def carrito():
     return render_template("carrito.html")
